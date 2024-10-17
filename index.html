@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  {{ if .SearchTerm }}
+    {{ range $id, $info := .FilteredArtists }}
+      <div class="return_button">
+        <a href="/">Return</a>
+      </div>
+      <h1 class="titlesearch">
+        {{ $info.Name }}
+      </h1>
+      <div class="cardsearch">
+        <div class="part1">
+          <div class="cadreimage">
+            <img src="static/358-3587206_vinyl-record-player-arm-removebg-preview.png" class="bras" alt="img">
+            <img src="{{ $info.Image }}" class="image" alt="img">
+          </div>
+        </div>
+        <div class="part2"> 
+          <div class="members">
+            <h3>Members:</h3>
+            {{ range $info.Members }}
+              <p class="member-item">{{ . }}</p>
+            {{ end }}
+          </div>
+          <div class="apidate">
+            <h3>Creation Date:</h3>
+            <h3 class="sapitext">{{ $info.CreationDate }}</h3>
+          </div>
+          <div class="apialbum">
+            <h3>First album:</h3> 
+            <h3 class="sapialbum">{{ $info.FirstAlbum }}</h3>
+          </div>
+          <div class="apidates">
+            <h3>Concerts dates:</h3>
+            {{ range $key, $value := $info.DatesLocations }}
+              <li class ="dates-items">{{ $key }}: {{ range $date := $value }}{{ $date }} {{ end }}</li>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+    {{ end }}
+  {{ else }}
+    <div class="navbar">
+      <div class="title">
+        <a href="/">THE ARTISTS API</a>
+      </div>
+      <form action="/" method="GET">
+        <input type="text" id="search" name="search" placeholder="Name" list="datalist">
+        <datalist id="datalist">
+          {{ range .FilteredArtists }}
+            <option value="{{ .Name }}">Artist</option>
+            {{ range .Members }}
+              <option value="{{ . }}">Members</option>
+            {{ end }}
+          {{ end }}
+        </datalist>
+        <button class="search" type="submit">Search</button>
+        <div class="searchbybutton">
+          <img src="static/treedots.png" class="treedots" onclick="toggleMenu()">
+        </div>
+        <div id="searchby">
+          <input type="radio" id="name" name="searchType" value="name">
+          <label for="name">Name</label><br>
+          <input type="radio" id="firstalbum" name="searchType" value="firstalbum">
+          <label for="firstalbum">First Album</label><br>
+          <input type="radio" id="members" name="searchType" value="members">
+          <label for="members">Members</label><br>
+          <input type="radio" id="creationdate" name="searchType" value="creationdate">
+          <label for="creationdate">Creation Date</label><br>
+          <input type="radio" id="locations" name="searchType" value="locations">
+          <label for="locations">Locations</label>
+        </div>
+      </form>
+    </div>
+    <form class="filter" action="/" method="GET">
+      <div id="CreationDateFilter">
+        <input type="text" name="minCreationDate" placeholder="MinCreationDate">
+        <input type="text" name="maxCreationDate" placeholder="MaxCreationDate">
+      </div>
+      <div id="FirstAlbumFilter">
+        <input type="text" name="minFirstAlbum" placeholder="MinAlbumDate">
+        <input type="text" name="maxFirstAlbum" placeholder="MaxAlbumDate">
+      </div>
+      <div id="MembersFilter">
+        <h3>Number Of Members:</h3>
+        <input type="radio" id="members" name="NumMembers" value="1">1
+        <input type="radio" id="members" name="NumMembers" value="2">2
+        <input type="radio" id="members" name="NumMembers" value="3">3
+        <input type="radio" id="members" name="NumMembers" value="4">4
+        <input type="radio" id="members" name="NumMembers" value="5">5
+        <input type="radio" id="members" name="NumMembers" value="6">6
+      </div>
+      <input class="applybutton" type="submit" value="Apply Filters">
+    </form>
+    <div class="cardhome">
+      {{ range $id, $info := .FilteredArtists }}
+        <div class="cadreimagehome">
+          <a onclick="Clickimg('{{ $info.Name }}')">
+              <img src="{{ $info.Image }}" class="imagehome" alt="img">
+          </a>
+          <h2>{{ $info.Name }}</h2>
+        </div>
+      {{ end }}
+    </div>
+  {{ end }}   
+
+  {{ if not .FilteredArtists }}
+  <div class="carderror">
+    <p class="message-error">Aucun résultat trouvé.</p>
+    <img src="/static/error-404-found-glitch-effect_8024-4.avif" class="error-image">
+  </div>
+  {{ end }}
+  
+  <script src="/static/main.js"></script>
+</body>
+</html>

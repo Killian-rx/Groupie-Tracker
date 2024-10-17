@@ -1,0 +1,465 @@
+*{
+    margin: 0;
+}
+
+@font-face{
+    font-family: "Pattaya";
+    src: 
+        url("fonts/Pattaya-Regular.ttf") format("opentype") tech(color-COLRv1),
+        url("fonts/OFL.txt") format("woff");
+}
+
+@font-face{
+    font-family: "Lemon";
+    src: 
+        url("fonts/Lemon-Regular.ttf") format("opentype") tech(color-COLRv1),
+        url("fonts/OFL.txt") format("woff");
+}
+
+@font-face{
+    font-family: "Nunito";
+    src: 
+        url("fonts/Nunito-BoldItalic.ttf") format("opentype") tech(color-COLRv1),
+        url("fonts/OFL.txt") format("woff");
+
+}
+
+body{
+    background: #ECF0F1 ;
+}
+
+body::-webkit-scrollbar {
+    width: 0.8vw; /* width of the entire scrollbar */
+}
+  
+body::-webkit-scrollbar-track {
+    background: #ccc; /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: white; /* color of the scroll thumb */
+    border-radius: 20px; /* roundness of the scroll thumb */
+    border: 3px solid #ccc  ; /* creates padding around scroll thumb */
+}
+
+.navbar{
+    box-shadow: 0 0 10px #1e3d59;
+    padding-block: 20px;
+    margin-bottom: 8vh;
+    background: #1e3d59;
+}
+
+.title{
+    text-align: center;
+    margin: auto;
+    margin-bottom: 1vh;
+}
+
+.navbar a{
+    font-family: 'Lemon';
+    color: white;
+    text-decoration: none;
+    font-size: 30px;
+}
+
+form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+
+.navbar input{
+    padding-inline: 10px;
+    padding-block: 5px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-right: 1%;
+    margin-left: 1vw;
+    font-family: 'Pattaya';
+}
+
+.search{
+    padding-inline: 10px;
+    padding-block: 5px;
+    border-radius: 100px;
+    overflow: hidden;
+    border: none;
+}
+
+#suggestions{
+    margin: auto;
+}
+
+.search:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+#searchby{
+    display: none;
+    align-items: center;
+    width: 10vw;
+    color: white;
+    background: #1e3d59;
+    font-family: 'Pattaya';
+}
+
+.searchbybutton{
+    width: 3%;
+}
+
+.treedots{
+    width: 100%;
+}
+
+.filter{
+    width: 80%;
+    display: flex;
+    margin: auto;
+    margin-bottom: 4vh;
+    align-items: center;
+}
+
+.filter input{
+    font-size: 15px;
+}
+
+#CreationDateFilter{
+    width: 20%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Pattaya';
+    margin-right: 1vw;
+}
+
+#CreationDateFilter input{
+    width: 45%;
+    padding-block: 1vh;
+    border: none;
+    text-align: center;
+    font-family: 'Pattaya';
+    border-radius: 10px;
+}
+
+#FirstAlbumFilter{
+    width: 20%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Pattaya';
+}
+
+#FirstAlbumFilter input{
+    width: 45%;
+    padding-block: 1vh;
+    border: none;
+    text-align: center;
+    font-family: 'Pattaya';
+    border-radius: 10px;
+}
+
+#MembersFilter{
+    width: 40%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Pattaya';
+}
+
+#MembersFilter h3{
+    margin-right: 1vw;
+    font-size: 18px;
+}
+
+#MembersFilter input{
+    width: 5%;
+    padding-block: 1vh;
+    border: none;
+    text-align: center;
+    font-family: 'Pattaya';
+    border-radius: 10px;
+}
+
+#LocationsFilter{
+    width: 20%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Pattaya';
+}
+
+#LocationsFilter input{
+    width: 80%;
+    padding-block: 1vh;
+    border: none;
+    text-align: center;
+    font-family: 'Pattaya';
+    border-radius: 10px;
+}
+
+.applybutton{
+    width: 10%;
+    padding-inline: 10px;
+    padding-block: 1vh;
+    border-radius: 100px;
+    overflow: hidden;
+    border: none;
+    background: #1e3d59;
+    color: white;
+    font-family: 'Pattaya';
+}
+
+.applybutton:hover{
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+
+.cardsearch{
+    width: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.return_button a{
+    text-decoration: none;
+    text-align: center;
+    position: absolute;
+    top: 2vh;
+    left: 2vw;
+    list-style-type: none;
+    padding-inline: 10px;
+    padding-block: 1vh;
+    border-radius: 100px;
+    overflow: hidden;
+    border: none;
+    background: #1e3d59;
+    color: white;
+    font-family: 'Pattaya';
+
+}
+
+.titlesearch {
+    font-size: 60px;
+    font-family: 'lemon';
+    padding-top: 2vh;
+    margin: auto;
+    text-transform: uppercase;
+    width: fit-content;
+}
+
+.cadreimage{
+    width: 70%;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.2);
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.image{
+    width: 100%;
+    border-radius: 50%;
+    animation: rotate 5s linear infinite;
+    z-index: 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.bras{
+    z-index: 1;
+    position: absolute;
+    transform: translate(65%, 100%) rotate(50deg);
+    width: 20%;
+}
+
+@keyframes rotate{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.part1{
+    width: 50%;
+}
+
+.part2{
+    width: 50%;
+}
+
+.apidate{
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 20px;
+    display: flex;
+    font-family: 'Pattaya';
+    text-transform: capitalize;
+}
+
+.sapitext{
+    margin-left: 2%;
+    font-family: 'Nunito';
+    font-size: 18px;
+}
+
+.apialbum{
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 20px;
+    display: flex;
+    font-family: 'Pattaya';
+    text-transform: capitalize;
+}
+
+.sapialbum{
+    margin-left: 2%;
+    font-family: 'Nunito';
+    font-size: 18px;
+}
+
+.name{
+    font-size: 22px;
+    font-family: 'Pattaya';
+    margin-bottom: 1vh;
+}
+
+.cardhome{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 3vh;
+    padding-top: 2vh;
+    border-top: 1px solid #ccc;
+}
+
+
+.cadreimagehome{
+    margin: 1.5vw;
+    width: 20%;
+    text-align: center;
+    font-family: 'Pattaya';
+}
+
+.imagehome{
+    width: 100%;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.imagehome:active{
+    transform: scale(0.9);
+}
+
+.members{
+    font-family: 'Pattaya';
+    font-size: 20px;
+    margin-bottom: 10px;
+
+}
+
+.member-item{
+    font-family: 'Nunito';
+    list-style-type: none;
+    font-size: 18px;
+}
+
+.apidates{
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 20px;
+    font-family: 'Pattaya';
+    text-transform: capitalize;
+}
+
+.dates-items{
+    list-style-type: none;
+    text-align: center;
+    font-family: 'Nunito';
+    text-transform: capitalize;
+    font-size: 18px;
+}
+
+.carderror{
+    width: 40%;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ccc;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 100px;
+}
+
+.message-error{
+    color: red;
+    font-size: 20px;
+    font-family: 'Pattaya';
+}
+
+.error-image{
+    width: 50%;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 768px){
+    .cardhome{
+        width: 80%;
+    }
+
+    .cadreimagehome{
+        width: 40%;
+    }
+
+    .cardsearch{
+        width: 80%;
+        display: block;
+        margin-bottom: 3vh;
+        margin-top: 1vh;
+    }
+
+    .navbar {
+        margin-bottom: 3vh;
+        text-align: center;
+    }
+
+    .part1{
+        width: 100%;
+    }
+
+    .part2{
+        width: 100%;
+    }
+
+    .carderror{
+        width: 80%;
+        display: block;
+    }
+    
+}
